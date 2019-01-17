@@ -1,4 +1,4 @@
-package org.app.util;
+package org.app.entities;
 /**
  * 
  * @author gentjan kolicaj

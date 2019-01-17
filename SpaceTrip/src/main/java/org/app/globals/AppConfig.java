@@ -1,7 +1,7 @@
 package org.app.globals;
 
+import org.app.entities.LoggerType;
 import org.app.entities.general.LanguageType;
-import org.app.util.LoggerType;
 
 /**
  * 

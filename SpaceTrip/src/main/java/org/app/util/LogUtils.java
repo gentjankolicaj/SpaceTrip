@@ -2,6 +2,7 @@ package org.app.util;
 
 import java.util.logging.Logger;
 
+import org.app.entities.LoggerType;
 import org.app.globals.AppConfig;
 
 /**
@@ -9,9 +10,9 @@ import org.app.globals.AppConfig;
  * @author gentjan kolicaj
  *
  */
-public class LogUtil {
+public class LogUtils {
 
-	private static Logger logger=Logger.getLogger(LogUtil.class.getName());
+	private static Logger logger=Logger.getLogger(LogUtils.class.getName());
 	
 	public static void print(String string) {
 		if(AppConfig.LOGGER_TYPE.equals(LoggerType.JAVA_LOGGER))
