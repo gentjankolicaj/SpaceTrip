@@ -14,7 +14,7 @@ import org.app.entities.Location;
  */
 public class Entity {
 
-	protected boolean visibility;
+	protected boolean visible;
 	protected Location location;
 	protected Image image;
 	protected String imagePath;
@@ -24,7 +24,8 @@ public class Entity {
 	public Entity(Location location) {
 		super();
 	    this.location=location;
-		this.visibility = true;
+		this.visible = true;
+		
 		
 	}
 	
@@ -33,43 +34,39 @@ public class Entity {
 		super();
 		 this.location=location;
 		this.imagePath=imagePath;
-		this.visibility=true;
+		this.visible = true;
 		
 		loadImage(imagePath);
-		
-		setImageDimensions();
-	
 	}
 	
 	public Entity(Location location,Image image) {
 		super();
 		this.image=image;
-		this.visibility=true;
+		this.visible = true;
 		
 		setImageDimensions();
 	
 	}
 
-	private void setImageDimensions() {
+	public void setImageDimensions() {
 		width = image.getWidth(null);
 		height = image.getHeight(null);
 	}
 
-	private void loadImage(String imagePath) {
+	public void loadImage(String imagePath) {
 		ImageIcon temp = new ImageIcon(getClass().getResource(imagePath));
 		image = temp.getImage();
-	}
-
-	
-	
-	
-	public boolean isVisibility() {
-		return visibility;
+		setImageDimensions();
 	}
 
 
-	public void setVisibility(boolean visibility) {
-		this.visibility = visibility;
+	public boolean isVisible() {
+		return visible;
+	}
+
+
+	public void setVisible(boolean visible) {
+		this.visible = visible;
 	}
 
 
@@ -110,6 +107,17 @@ public class Entity {
 
 	public void setHeight(int height) {
 		this.height = height;
+	}
+
+	
+
+	public Location getLocation() {
+		return location;
+	}
+
+
+	public void setLocation(Location location) {
+		this.location = location;
 	}
 
 

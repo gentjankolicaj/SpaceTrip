@@ -1,8 +1,11 @@
 package org.app.entities.game;
 
 import java.awt.Image;
+import java.util.ArrayList;
 
 import org.app.entities.Location;
+import org.app.globals.GameConfig;
+
 
 /**
  * 
@@ -10,6 +13,8 @@ import org.app.entities.Location;
  *
  */
 public class SpaceShip extends Entity {
+	
+	private ArrayList<Missile> missiles;
 
 	public SpaceShip(Location location, Image image) {
 		super(location, image);
@@ -23,12 +28,21 @@ public class SpaceShip extends Entity {
 
 	public SpaceShip(Location location) {
 		super(location);
-		// TODO Auto-generated constructor stub
+		loadImage(GameConfig.SPACESHIP_1);
 	}
 
 	
     public void move() {
 		
+	}
+    
+    
+    public void fire() {
+		missiles.add(new Missile(new Location(location.getX() + width, location.getY() + height / 2)));
+	}
+
+	public ArrayList<Missile> getMissiles() {
+		return missiles;
 	}
 
 }

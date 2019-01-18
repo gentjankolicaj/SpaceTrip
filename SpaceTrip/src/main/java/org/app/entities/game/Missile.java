@@ -3,6 +3,7 @@ package org.app.entities.game;
 import java.awt.Image;
 
 import org.app.entities.Location;
+import org.app.globals.GameConfig;
 
 /**
  * 
@@ -13,7 +14,8 @@ public class Missile extends Entity {
 
 	public Missile(Location location, Image image) {
 		super(location, image);
-		// TODO Auto-generated constructor stub
+	     loadImage(GameConfig.MISSILE);
+	     
 	}
 
 	public Missile(Location location, String imagePath) {
