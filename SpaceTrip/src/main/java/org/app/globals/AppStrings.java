@@ -18,6 +18,19 @@ public class AppStrings {
 	public static String developer = "Author : Gentjan Kolicaj";
 	public static String githubAccount = "Github : https://github.com/gentjankolicaj";
 	public static String email = "Email : gentjankolicaj@yahoo.com";
+	
+
+	public static String[] quotes = { "Historia eshte perralle e shkruar nga fitimtaret...(N.Bonaparti)",
+			"Dutty is the essence of manhood", "War spares not the brave but the cowardly",
+			"Get busy living or get busy dying (Stephen King)",
+			"Those who dare to fail miserably can achieve greatly.(John F. Kennedy)",
+			"It is hard to fail, but it is worse never to have tried to succeed.(Theodore Roosevelt)",
+			"Love is a serious mental disease.(Plato)",
+			"If you want to live a happy life, tie it to a goal, not to people or things.(Albert Einstein)",
+			"Never let the fear of striking out keep you from playing the game.(Babe Ruth)",
+			"Success is how high you bounce when you hit bottom.(George S. Patton)"
+
+	};
 
 	public static Map<LanguageType, StringLabel> start = new HashMap();
 	public static Map<LanguageType, StringLabel> pause = new HashMap();
@@ -27,6 +40,9 @@ public class AppStrings {
 	public static Map<LanguageType, StringLabel> save =new HashMap();
 	public static Map<LanguageType, StringLabel> continueStr =new HashMap();
 	public static Map<LanguageType, StringLabel> newGame = new HashMap();
+	public static Map<LanguageType,StringLabel> gameOver=new HashMap();
+	public static Map<LanguageType,StringLabel> gameWinner=new HashMap();
+
 
 	public static Map<LanguageType, StringLabel> success = new HashMap();
 	public static Map<LanguageType, StringLabel> warning = new HashMap();
@@ -109,6 +125,19 @@ public class AppStrings {
 		newGame.put(LanguageType.ITALIAN,new StringLabel(LanguageType.ITALIAN,"nuovo gioco"));
 		newGame.put(LanguageType.GERMAN,new StringLabel(LanguageType.GERMAN,"neues Spiel"));
 		newGame.put(LanguageType.FRENCH,new StringLabel(LanguageType.FRENCH,"nouveau jeu"));
+		
+		gameWinner.put(LanguageType.ENGLISH,new StringLabel(LanguageType.ENGLISH,"You won."));
+		gameWinner.put(LanguageType.ALBANIAN,new StringLabel(LanguageType.ALBANIAN,"Ti fitove."));
+		gameWinner.put(LanguageType.ITALIAN,new StringLabel(LanguageType.ITALIAN,"Hai vinto."));
+		gameWinner.put(LanguageType.GERMAN,new StringLabel(LanguageType.GERMAN,"Du hast gewonnen."));
+		gameWinner.put(LanguageType.FRENCH,new StringLabel(LanguageType.FRENCH,"Tu as gagné."));
+		
+		
+		gameOver.put(LanguageType.ENGLISH,new StringLabel(LanguageType.ENGLISH,"Game over."));
+		gameOver.put(LanguageType.ALBANIAN,new StringLabel(LanguageType.ALBANIAN,"Loja mbaroi."));
+		gameOver.put(LanguageType.ITALIAN,new StringLabel(LanguageType.ITALIAN,"Gioco finito."));
+		gameOver.put(LanguageType.GERMAN,new StringLabel(LanguageType.GERMAN,"Spiel ist aus."));
+		gameOver.put(LanguageType.FRENCH,new StringLabel(LanguageType.FRENCH,"Jeu terminé."));
 		
 		
 		//======================================================================================
