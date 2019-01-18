@@ -15,7 +15,7 @@ public class PanelUtils {
 	public static void changePanel(JFrame jFrame,JPanel oldPanel,JPanel gamePanel,JPanel infoPanel) {
 		Container container=jFrame.getContentPane();
 		container.remove(oldPanel);
-		container.setSize(new Dimension(AppConfig.WINDOW_WIDTH, AppConfig.WINDOW_HEIGHT));
+		jFrame.setSize(new Dimension(AppConfig.WINDOW_WIDTH, AppConfig.WINDOW_HEIGHT));
 		container.setLayout(new BorderLayout());
 		container.add(gamePanel, BorderLayout.CENTER);
 		container.add(infoPanel, BorderLayout.SOUTH);

@@ -30,6 +30,7 @@ public class InfoPanel extends JPanel {
 	public InfoPanel() {
 		this.instance = this;
 
+		initInfoPanelComponents();
 	}
 
 	private void initInfoPanelComponents() {
@@ -68,17 +69,17 @@ public class InfoPanel extends JPanel {
 		time.setBounds(106, 70, 68, 18);
 		add(time);
 
-		lblAlien = new JLabel("Alien :");
+		lblAlien = new JLabel(AppStrings.alien.get(language).getContent());
 		lblAlien.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblAlien.setBounds(286, 11, 125, 18);
 		add(lblAlien);
 
-		lblMeteor = new JLabel("Meteor :");
+		lblMeteor = new JLabel(AppStrings.meteor.get(language).getContent());
 		lblMeteor.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblMeteor.setBounds(286, 40, 125, 18);
 		add(lblMeteor);
 
-		lblPlanet = new JLabel("Planet :");
+		lblPlanet = new JLabel(AppStrings.planet.get(language).getContent());
 		lblPlanet.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblPlanet.setBounds(286, 70, 125, 18);
 		add(lblPlanet);

@@ -123,7 +123,6 @@ public class StartPanel extends JPanel {
 				GamePanel gamePanel = new GamePanel(infoPanel);
 
 				PanelUtils.changePanel(jFrame, instance, gamePanel, infoPanel);
-
 			}
 		});
 
