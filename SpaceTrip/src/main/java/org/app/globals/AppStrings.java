@@ -12,15 +12,9 @@ import org.app.entities.general.StringLabel;
  *
  */
 public class AppStrings {
-
-	/**
-	 * 
-	 * General app label
-	 * 
-	 * 
-	 */
+	
 	public static Map<LanguageType, StringLabel> welcomeMessage = new HashMap<>();
-	public static String applicationVersion = "MyManager-v.0.1";
+	public static String applicationVersion = "SpaceTrip";
 	public static String developer = "Author : Gentjan Kolicaj";
 	public static String githubAccount = "Github : https://github.com/gentjankolicaj";
 	public static String email = "Email : gentjankolicaj@yahoo.com";
@@ -42,6 +36,20 @@ public class AppStrings {
 	
 	public static Map<LanguageType,StringLabel> bonus=new HashMap();
 	public static Map<LanguageType,StringLabel> bonusAnswerCorrect=new HashMap();
+	
+	
+	public static Map<LanguageType, StringLabel> points = new HashMap();
+	public static Map<LanguageType,StringLabel> life=new HashMap();
+	public static Map<LanguageType,StringLabel> time=new HashMap();
+	
+	
+	public static Map<LanguageType, StringLabel> alien= new HashMap();
+	public static Map<LanguageType,StringLabel> meteor=new HashMap();
+	public static Map<LanguageType,StringLabel> planet=new HashMap();
+	
+	
+	
+	
 
 	static {
 		
@@ -68,7 +76,7 @@ public class AppStrings {
 		pause.put(LanguageType.FRENCH,new StringLabel(LanguageType.FRENCH,"arrêt"));
 		
 		close.put(LanguageType.ENGLISH,new StringLabel(LanguageType.ENGLISH,"Close"));
-		close.put(LanguageType.ALBANIAN,new StringLabel(LanguageType.ALBANIAN,"Cbyll"));
+		close.put(LanguageType.ALBANIAN,new StringLabel(LanguageType.ALBANIAN,"Mbyll"));
 		close.put(LanguageType.ITALIAN,new StringLabel(LanguageType.ITALIAN,"Chiusi"));
 		close.put(LanguageType.GERMAN,new StringLabel(LanguageType.GERMAN,"Schließen"));
 		close.put(LanguageType.FRENCH,new StringLabel(LanguageType.FRENCH,"Fermer"));
@@ -152,7 +160,52 @@ public class AppStrings {
 		bonusAnswerCorrect.put(LanguageType.FRENCH,new StringLabel(LanguageType.FRENCH,"Bonne réponse"));
 		
 		
+		
+	    //==============================INFO PANEL LABELS========================================================
 	
+		
+		points.put(LanguageType.ENGLISH,new StringLabel(LanguageType.ENGLISH,"Points : "));
+		points.put(LanguageType.ALBANIAN,new StringLabel(LanguageType.ALBANIAN,"Piket : "));
+		points.put(LanguageType.ITALIAN,new StringLabel(LanguageType.ITALIAN,"Punti : "));
+		points.put(LanguageType.GERMAN,new StringLabel(LanguageType.GERMAN,"Punkte : "));
+		points.put(LanguageType.FRENCH,new StringLabel(LanguageType.FRENCH,"Les points : "));
+		
+		life.put(LanguageType.ENGLISH,new StringLabel(LanguageType.ENGLISH,"Life : "));
+		life.put(LanguageType.ALBANIAN,new StringLabel(LanguageType.ALBANIAN,"Jetet : "));
+		life.put(LanguageType.ITALIAN,new StringLabel(LanguageType.ITALIAN,"Vita : "));
+		life.put(LanguageType.GERMAN,new StringLabel(LanguageType.GERMAN,"Leben : "));
+		life.put(LanguageType.FRENCH,new StringLabel(LanguageType.FRENCH,"L' vie : "));
+		
+		
+		time.put(LanguageType.ENGLISH,new StringLabel(LanguageType.ENGLISH,"Time : "));
+		time.put(LanguageType.ALBANIAN,new StringLabel(LanguageType.ALBANIAN,"Koha : "));
+		time.put(LanguageType.ITALIAN,new StringLabel(LanguageType.ITALIAN,"Tempo : "));
+		time.put(LanguageType.GERMAN,new StringLabel(LanguageType.GERMAN,"Zeit : "));
+		time.put(LanguageType.FRENCH,new StringLabel(LanguageType.FRENCH,"Temps : "));
+			
+		
+		alien.put(LanguageType.ENGLISH,new StringLabel(LanguageType.ENGLISH,"Alien :"));
+		alien.put(LanguageType.ALBANIAN,new StringLabel(LanguageType.ALBANIAN,"Jashtetokesor :"));
+		alien.put(LanguageType.ITALIAN,new StringLabel(LanguageType.ITALIAN,"Alieno :"));
+		alien.put(LanguageType.GERMAN,new StringLabel(LanguageType.GERMAN,"Ausländer :"));
+		alien.put(LanguageType.FRENCH,new StringLabel(LanguageType.FRENCH,"Extraterrestre :"));
+		
+		meteor.put(LanguageType.ENGLISH,new StringLabel(LanguageType.ENGLISH,"Meteor :"));
+		meteor.put(LanguageType.ALBANIAN,new StringLabel(LanguageType.ALBANIAN,"Meteor :"));
+		meteor.put(LanguageType.ITALIAN,new StringLabel(LanguageType.ITALIAN,"Meteora :"));
+		meteor.put(LanguageType.GERMAN,new StringLabel(LanguageType.GERMAN,"Meteor :"));
+		meteor.put(LanguageType.FRENCH,new StringLabel(LanguageType.FRENCH,"Météore :"));
+		
+		
+		planet.put(LanguageType.ENGLISH,new StringLabel(LanguageType.ENGLISH,"Planet :"));
+		planet.put(LanguageType.ALBANIAN,new StringLabel(LanguageType.ALBANIAN,"Planet :"));
+		planet.put(LanguageType.ITALIAN,new StringLabel(LanguageType.ITALIAN,"Pianeta :"));
+		planet.put(LanguageType.GERMAN,new StringLabel(LanguageType.GERMAN,"Planet :"));
+		planet.put(LanguageType.FRENCH,new StringLabel(LanguageType.FRENCH,"Planète :"));
+		
+		
+		  //======================================================================================
+		
 	
 	
 	
