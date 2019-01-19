@@ -20,12 +20,12 @@ public class Missile extends Entity {
 
 	public Missile(Location location, String imagePath) {
 		super(location, imagePath);
-		// TODO Auto-generated constructor stub
+		 loadImage(GameConfig.MISSILE);
 	}
 
 	public Missile(Location location) {
 		super(location);
-		// TODO Auto-generated constructor stub
+		 loadImage(GameConfig.MISSILE);
 	}
 
 	

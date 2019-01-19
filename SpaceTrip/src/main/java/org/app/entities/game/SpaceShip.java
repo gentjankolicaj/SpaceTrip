@@ -1,9 +1,12 @@
 package org.app.entities.game;
 
 import java.awt.Image;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.ArrayList;
 
 import org.app.entities.Location;
+import org.app.globals.AppConfig;
 import org.app.globals.GameConfig;
 
 
@@ -12,23 +15,24 @@ import org.app.globals.GameConfig;
  * @author-Gentjan_Kolicaj
  *
  */
-public class SpaceShip extends Entity {
+public class SpaceShip extends Entity{
 	
 	private ArrayList<Missile> missiles;
 
 	public SpaceShip(Location location, Image image) {
 		super(location, image);
-		// TODO Auto-generated constructor stub
+		this.missiles=new ArrayList<>();
 	}
 
 	public SpaceShip(Location location, String imagePath) {
 		super(location, imagePath);
-		// TODO Auto-generated constructor stub
+		this.missiles=new ArrayList<>();
 	}
 
 	public SpaceShip(Location location) {
 		super(location);
 		loadImage(GameConfig.SPACESHIP_1);
+		this.missiles=new ArrayList<>();
 	}
 
 	
@@ -44,5 +48,5 @@ public class SpaceShip extends Entity {
 	public ArrayList<Missile> getMissiles() {
 		return missiles;
 	}
-
+	
 }

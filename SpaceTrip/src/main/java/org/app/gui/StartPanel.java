@@ -122,7 +122,12 @@ public class StartPanel extends JPanel {
 				InfoPanel infoPanel = new InfoPanel();
 				GamePanel gamePanel = new GamePanel(infoPanel);
 
+				//Panel change in JFrame.
 				PanelUtils.changePanel(jFrame, instance, gamePanel, infoPanel);
+				
+				//Resquesting focus in this panel
+				//IMPORTANT:Focus must be requested in order for KeypadListener to listen in gamePanel
+				gamePanel.requestFocusInWindow();
 			}
 		});
 

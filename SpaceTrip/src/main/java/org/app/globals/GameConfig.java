@@ -15,8 +15,8 @@ public class GameConfig {
 	
 	//Speed config
 	public static int meteor_speed=1;
-	public static int spaceship_speed = 1;
-	public static int missile_speed= 2;
+	public static int spaceship_speed = 6;
+	public static int missile_speed= 8;
 	public static int alien_speed= 2;
 	
 	

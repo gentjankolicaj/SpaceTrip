@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -20,6 +22,7 @@ import org.app.entities.game.SpaceShip;
 import org.app.globals.AppConfig;
 import org.app.globals.AppStrings;
 import org.app.globals.GameConfig;
+import org.app.listener.KeyboardListener;
 import org.app.motion.Function;
 import org.app.motion.FunctionFactory;
 
@@ -29,13 +32,14 @@ import org.app.motion.FunctionFactory;
  * 
  * 
  */
-public class GamePanel extends JPanel implements Runnable {
+public class GamePanel extends JPanel implements Runnable{
 
 	private static final long serialVersionUID = -727575640775966022L;
 	private static final long INIT_TIME = System.currentTimeMillis();
 
 	private JPanel instance;
 	private InfoPanel infoPanel;
+	private KeyboardListener keyboardListener;
 	private Thread thread;
 
 	private boolean inGame;
@@ -51,17 +55,20 @@ public class GamePanel extends JPanel implements Runnable {
 
 	public GamePanel(InfoPanel infoPanel) {
 		this.instance = this;
+		setLayout(null);
 		this.infoPanel = infoPanel;
 		this.inGame = true;
 		this.lifes = GameConfig.lifes;
 		this.gameLevel = GameConfig.startLevel;
 		this.backgroundImage = GameConfig.PLANET_ORDER[0].getImageResource();
 		this.spaceShip=new SpaceShip(new Location(GameConfig.SPACESHIP_INIT_X,GameConfig.SPACESHIP_INIT_Y));
+        this.keyboardListener=new KeyboardListener(spaceShip);
 
-		setLayout(null);
+	    
+		addKeyListener(keyboardListener);
 		
-		thread =new Thread(this);
 		
+		thread = new Thread(this);
 		thread.start();
 
 	}
@@ -86,7 +93,7 @@ public class GamePanel extends JPanel implements Runnable {
 			//changeLevel();
 			
 			try {
-				thread.sleep(100);
+				thread.sleep(50);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -119,15 +126,20 @@ public class GamePanel extends JPanel implements Runnable {
 	}
 
 	private void moveMissile() {
-		// TODO Auto-generated method stub
+		List<Missile> list=spaceShip.getMissiles();
+		for(Missile var:list) {
+			Location tmp=var.getLocation();
+			int updateX=tmp.getX()+GameConfig.missile_speed+1;
+			tmp.setX(updateX);
+		}
 
 	}
 
 	private void moveSpaceShip() {
-		Function<Location,Location> function=FunctionFactory.getMotionFunction(MotionFunctionType.X_Y0);
+	/*	Function<Location,Location> function=FunctionFactory.getMotionFunction(MotionFunctionType.X_Y0);
         Location tmp=spaceShip.getLocation();
-        tmp.setX(tmp.getX()+1);
-        spaceShip.setLocation(tmp);
+        tmp.setX(tmp.getX()+3);
+        spaceShip.setLocation(tmp);*/
 	}
 
 	@Override
@@ -231,8 +243,7 @@ public class GamePanel extends JPanel implements Runnable {
 
 	}
 
-	// ==================================Print
-	// SpaceShip================================================
+	// ======================Print spaceship====================================
 	private void paintSpaceShip() {
 
 	}
@@ -240,7 +251,5 @@ public class GamePanel extends JPanel implements Runnable {
 	private void paintMissile() {
 
 	}
-
-	// ===============================================================================================
 
 }

@@ -24,7 +24,7 @@ public class AppConfig {
 	public static final int START_PANEL_WIDTH= 640;
 	public static final int START_PANEL_HEIGHT = 330;
 
-	public static final int GAME_PANEL_WIDTH =930;
+	public static final int GAME_PANEL_WIDTH = 930;
 	public static final int GAME_PANEL_HEIGHT = 540;
 
 	public static final int INFO_PANEL_WIDTH= 930;
