@@ -4,7 +4,7 @@ package org.app.entities;
  * @author gentjan kolicaj
  *
  */
-public enum MotionFunctionType {
+public enum AlienMotionFunctionType {
 	
 	X_Y0("X_Y0"),X2_Y0("X2_Y0"),X3_Y0("X3_Y0"),
 	
@@ -24,7 +24,7 @@ public enum MotionFunctionType {
 	
 	private String value;
 	
-	private MotionFunctionType(String value) {
+	private AlienMotionFunctionType(String value) {
 		this.value=value;
 	}
 	

@@ -1,7 +1,7 @@
 package org.app.motion;
 
 import org.app.entities.Location;
-import org.app.entities.MotionFunctionType;
+import org.app.entities.AlienMotionFunctionType;
 import org.app.exceptions.BumpException;
 import org.app.util.CalculationUtils;
 import org.app.util.LogUtils;
@@ -11,13 +11,13 @@ import org.app.util.LogUtils;
  * @author gentjan kolicaj
  *
  */
-public class MotionFunction implements Function<Location, Location> {
+public class AlienMotionFunction implements Function<Location, Location> {
 
-	private MotionFunctionType functionType;
+	private AlienMotionFunctionType functionType;
 	
 	private int bumps;
 
-	MotionFunction(MotionFunctionType functionType) {
+	AlienMotionFunction(AlienMotionFunctionType functionType) {
 		this.functionType = functionType;
 		this.bumps=1;
 	}
@@ -30,107 +30,107 @@ public class MotionFunction implements Function<Location, Location> {
 	@Override
 	public Location calculate2(Location input) {
 		Location output = new Location();
-		if (functionType.equals(MotionFunctionType.X_Y0)) {
+		if (functionType.equals(AlienMotionFunctionType.X_Y0)) {
 			int xValue = input.getX()-1;
 			int yValue = input.getY();
 			output.setX(xValue);
 			output.setY(yValue);
-		} else if (functionType.equals(MotionFunctionType.X2_Y0)) {
+		} else if (functionType.equals(AlienMotionFunctionType.X2_Y0)) {
 			int xValue = input.getX()-2;
 			int yValue = input.getY();
 			output.setX(xValue);
 			output.setY(yValue);
-		} else if (functionType.equals(MotionFunctionType.X3_Y0)) {
+		} else if (functionType.equals(AlienMotionFunctionType.X3_Y0)) {
 			int xValue = input.getX()-3;
 			int yValue = input.getY();
 			output.setX(xValue);
 			output.setY(yValue);
-		} else if (functionType.equals(MotionFunctionType.X0_Y)) {
+		} else if (functionType.equals(AlienMotionFunctionType.X0_Y)) {
 			int xValue = input.getX();
 			int yValue = input.getY()-1;
 			output.setX(xValue);
 			output.setY(yValue);
-		} else if (functionType.equals(MotionFunctionType.X0_Y2)) {
+		} else if (functionType.equals(AlienMotionFunctionType.X0_Y2)) {
 			int xValue = input.getX();
 			int yValue = input.getY()-2;
 			output.setX(xValue);
 			output.setY(yValue);
-		} else if (functionType.equals(MotionFunctionType.X0_Y3)) {
+		} else if (functionType.equals(AlienMotionFunctionType.X0_Y3)) {
 			int xValue = input.getX();
 			int yValue = input.getY()-3;
 			output.setX(xValue);
 			output.setY(yValue);
-		} else if (functionType.equals(MotionFunctionType.X_Y)) {
+		} else if (functionType.equals(AlienMotionFunctionType.X_Y)) {
 			int xValue = input.getX()-1;
 			int yValue = input.getY()-1;
 			output.setX(xValue);
 			output.setY(yValue);
-		} else if (functionType.equals(MotionFunctionType.X2_Y2)) {
+		} else if (functionType.equals(AlienMotionFunctionType.X2_Y2)) {
 			int xValue = input.getX()-2;
 			int yValue = input.getY()-2;
 			output.setX(xValue);
 			output.setY(yValue);
-		} else if (functionType.equals(MotionFunctionType.X3_Y3)) {
+		} else if (functionType.equals(AlienMotionFunctionType.X3_Y3)) {
 			int xValue = input.getX()-3;
 			int yValue = input.getY()-3;
 			output.setX(xValue);
 			output.setY(yValue);
-		} else if (functionType.equals(MotionFunctionType.X_Y2)) {
+		} else if (functionType.equals(AlienMotionFunctionType.X_Y2)) {
 			int xValue = input.getX()-1;
 			int yValue = input.getY()-2;
 			output.setX(xValue);
 			output.setY(yValue);
-		} else if (functionType.equals(MotionFunctionType.X2_Y)) {
+		} else if (functionType.equals(AlienMotionFunctionType.X2_Y)) {
 			int xValue = input.getX()-2;
 			int yValue = input.getY()-1;
 			output.setX(xValue);
 			output.setY(yValue);
-		} else if (functionType.equals(MotionFunctionType.X_COSX)) {
+		} else if (functionType.equals(AlienMotionFunctionType.X_COSX)) {
 			int xValue = input.getX()-1;
 			int yValue=CalculationUtils.calculateCosY(bumps, input.getX());
 			output.setX(xValue);
 			output.setY(yValue);
-		} else if (functionType.equals(MotionFunctionType.X2_COSX)) {
+		} else if (functionType.equals(AlienMotionFunctionType.X2_COSX)) {
 			int xValue = input.getX()-2;
 			int yValue=CalculationUtils.calculateCosY(bumps, input.getX());
 			output.setX(xValue);
 			output.setY(yValue);
-		} else if (functionType.equals(MotionFunctionType.X3_COSX)) {
+		} else if (functionType.equals(AlienMotionFunctionType.X3_COSX)) {
 			int xValue = input.getX()-3;
 			int yValue=CalculationUtils.calculateCosY(bumps, input.getX());
 			output.setX(xValue);
 			output.setY(yValue);
-		} else if (functionType.equals(MotionFunctionType.X_COS2X)) {
+		} else if (functionType.equals(AlienMotionFunctionType.X_COS2X)) {
 			int xValue = input.getX()-1;
 			int yValue=CalculationUtils.calculateCosY(bumps, input.getX()*2);
 			output.setX(xValue);
 			output.setY(yValue);
-		} else if (functionType.equals(MotionFunctionType.X_COS3X)) {
+		} else if (functionType.equals(AlienMotionFunctionType.X_COS3X)) {
 			int xValue = input.getX()-1;
 			int yValue=CalculationUtils.calculateCosY(bumps, input.getX()*3);
 			output.setX(xValue);
 			output.setY(yValue);
-		}else if (functionType.equals(MotionFunctionType.X_SINX)) {
+		}else if (functionType.equals(AlienMotionFunctionType.X_SINX)) {
 			int xValue = input.getX()-1;
 			int yValue=CalculationUtils.calculateSinY(bumps, input.getX());
 			output.setX(xValue);
 			output.setY(yValue);
-		} else if (functionType.equals(MotionFunctionType.X2_SINX)) {
+		} else if (functionType.equals(AlienMotionFunctionType.X2_SINX)) {
 			int xValue = input.getX()-2;
 			int yValue=CalculationUtils.calculateSinY(bumps, input.getX());
 			output.setX(xValue);
 			output.setY(yValue);
-		} else if (functionType.equals(MotionFunctionType.X3_SINX)) {
+		} else if (functionType.equals(AlienMotionFunctionType.X3_SINX)) {
 			int xValue = input.getX()-3;
 			int yValue=CalculationUtils.calculateSinY(bumps, input.getX());
 			output.setX(xValue);
 			output.setY(yValue);
-		}else if (functionType.equals(MotionFunctionType.X_SIN2X)) {
+		}else if (functionType.equals(AlienMotionFunctionType.X_SIN2X)) {
 			int xValue = input.getX()-1;
 			int yValue=CalculationUtils.calculateSinY(bumps, input.getX()*2);
 			output.setX(xValue);
 			output.setY(yValue);
-		} else if (functionType.equals(MotionFunctionType.X_SIN3X)) {
+		} else if (functionType.equals(AlienMotionFunctionType.X_SIN3X)) {
 			int xValue = input.getX()-1;
 			int yValue=CalculationUtils.calculateSinY(bumps, input.getX()*3);
 			output.setX(xValue);
@@ -149,107 +149,107 @@ public class MotionFunction implements Function<Location, Location> {
 	
 	@Override
 	public Location calculate(Location input) {
-		if (functionType.equals(MotionFunctionType.X_Y0)) {
+		if (functionType.equals(AlienMotionFunctionType.X_Y0)) {
 			int xValue = input.getX()-1;
 			int yValue = input.getY();
 			input.setX(xValue);
 			input.setY(yValue);
-		} else if (functionType.equals(MotionFunctionType.X2_Y0)) {
+		} else if (functionType.equals(AlienMotionFunctionType.X2_Y0)) {
 			int xValue = input.getX()-2;
 			int yValue = input.getY();
 			input.setX(xValue);
 			input.setY(yValue);
-		} else if (functionType.equals(MotionFunctionType.X3_Y0)) {
+		} else if (functionType.equals(AlienMotionFunctionType.X3_Y0)) {
 			int xValue = input.getX()-3;
 			int yValue = input.getY();
 			input.setX(xValue);
 			input.setY(yValue);
-		} else if (functionType.equals(MotionFunctionType.X0_Y)) {
+		} else if (functionType.equals(AlienMotionFunctionType.X0_Y)) {
 			int xValue = input.getX();
 			int yValue = input.getY()-1;
 			input.setX(xValue);
 			input.setY(yValue);
-		} else if (functionType.equals(MotionFunctionType.X0_Y2)) {
+		} else if (functionType.equals(AlienMotionFunctionType.X0_Y2)) {
 			int xValue = input.getX();
 			int yValue = input.getY()-2;
 			input.setX(xValue);
 			input.setY(yValue);
-		} else if (functionType.equals(MotionFunctionType.X0_Y3)) {
+		} else if (functionType.equals(AlienMotionFunctionType.X0_Y3)) {
 			int xValue = input.getX();
 			int yValue = input.getY()-3;
 			input.setX(xValue);
 			input.setY(yValue);
-		} else if (functionType.equals(MotionFunctionType.X_Y)) {
+		} else if (functionType.equals(AlienMotionFunctionType.X_Y)) {
 			int xValue = input.getX()-1;
 			int yValue = input.getY()-1;
 			input.setX(xValue);
 			input.setY(yValue);
-		} else if (functionType.equals(MotionFunctionType.X2_Y2)) {
+		} else if (functionType.equals(AlienMotionFunctionType.X2_Y2)) {
 			int xValue = input.getX()-2;
 			int yValue = input.getY()-2;
 			input.setX(xValue);
 			input.setY(yValue);
-		} else if (functionType.equals(MotionFunctionType.X3_Y3)) {
+		} else if (functionType.equals(AlienMotionFunctionType.X3_Y3)) {
 			int xValue = input.getX()-3;
 			int yValue = input.getY()-3;
 			input.setX(xValue);
 			input.setY(yValue);
-		} else if (functionType.equals(MotionFunctionType.X_Y2)) {
+		} else if (functionType.equals(AlienMotionFunctionType.X_Y2)) {
 			int xValue = input.getX()-1;
 			int yValue = input.getY()-2;
 			input.setX(xValue);
 			input.setY(yValue);
-		} else if (functionType.equals(MotionFunctionType.X2_Y)) {
+		} else if (functionType.equals(AlienMotionFunctionType.X2_Y)) {
 			int xValue = input.getX()-2;
 			int yValue = input.getY()-1;
 			input.setX(xValue);
 			input.setY(yValue);
-		} else if (functionType.equals(MotionFunctionType.X_COSX)) {
+		} else if (functionType.equals(AlienMotionFunctionType.X_COSX)) {
 			int xValue = input.getX()-1;
 			int yValue=CalculationUtils.calculateCosY(bumps, input.getX());
 			input.setX(xValue);
 			input.setY(yValue);
-		} else if (functionType.equals(MotionFunctionType.X2_COSX)) {
+		} else if (functionType.equals(AlienMotionFunctionType.X2_COSX)) {
 			int xValue = input.getX()-2;
 			int yValue=CalculationUtils.calculateCosY(bumps, input.getX());
 			input.setX(xValue);
 			input.setY(yValue);
-		} else if (functionType.equals(MotionFunctionType.X3_COSX)) {
+		} else if (functionType.equals(AlienMotionFunctionType.X3_COSX)) {
 			int xValue = input.getX()-3;
 			int yValue=CalculationUtils.calculateCosY(bumps, input.getX());
 			input.setX(xValue);
 			input.setY(yValue);
-		} else if (functionType.equals(MotionFunctionType.X_COS2X)) {
+		} else if (functionType.equals(AlienMotionFunctionType.X_COS2X)) {
 			int xValue = input.getX()-1;
 			int yValue=CalculationUtils.calculateCosY(bumps, input.getX()*2);
 			input.setX(xValue);
 			input.setY(yValue);
-		} else if (functionType.equals(MotionFunctionType.X_COS3X)) {
+		} else if (functionType.equals(AlienMotionFunctionType.X_COS3X)) {
 			int xValue = input.getX()-1;
 			int yValue=CalculationUtils.calculateCosY(bumps, input.getX()*3);
 			input.setX(xValue);
 			input.setY(yValue);
-		}else if (functionType.equals(MotionFunctionType.X_SINX)) {
+		}else if (functionType.equals(AlienMotionFunctionType.X_SINX)) {
 			int xValue = input.getX()-1;
 			int yValue=CalculationUtils.calculateSinY(bumps, input.getX());
 			input.setX(xValue);
 			input.setY(yValue);
-		} else if (functionType.equals(MotionFunctionType.X2_SINX)) {
+		} else if (functionType.equals(AlienMotionFunctionType.X2_SINX)) {
 			int xValue = input.getX()-2;
 			int yValue=CalculationUtils.calculateSinY(bumps, input.getX());
 			input.setX(xValue);
 			input.setY(yValue);
-		} else if (functionType.equals(MotionFunctionType.X3_SINX)) {
+		} else if (functionType.equals(AlienMotionFunctionType.X3_SINX)) {
 			int xValue = input.getX()-3;
 			int yValue=CalculationUtils.calculateSinY(bumps, input.getX());
 			input.setX(xValue);
 			input.setY(yValue);
-		}else if (functionType.equals(MotionFunctionType.X_SIN2X)) {
+		}else if (functionType.equals(AlienMotionFunctionType.X_SIN2X)) {
 			int xValue = input.getX()-1;
 			int yValue=CalculationUtils.calculateSinY(bumps, input.getX()*2);
 			input.setX(xValue);
 			input.setY(yValue);
-		} else if (functionType.equals(MotionFunctionType.X_SIN3X)) {
+		} else if (functionType.equals(AlienMotionFunctionType.X_SIN3X)) {
 			int xValue = input.getX()-1;
 			int yValue=CalculationUtils.calculateSinY(bumps, input.getX()*3);
 			input.setX(xValue);
