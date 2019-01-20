@@ -4,7 +4,7 @@ package org.app.motion;
 import static org.junit.Assert.assertNotNull;
 
 import org.app.entities.Location;
-import org.app.entities.MotionFunctionType;
+import org.app.entities.AlienMotionFunctionType;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -16,9 +16,9 @@ public class FunctionFactoryTest {
 
 	@Test
 	public void testGetMotionFunction() {
-		MotionFunctionType[] array=MotionFunctionType.values();
+		AlienMotionFunctionType[] array=AlienMotionFunctionType.values();
 		
-		MotionFunction function=FunctionFactory.getMotionFunction(MotionFunctionType.X2_SINX);
+		Function<Location,Location> function=FunctionFactory.getAlienFunction(AlienMotionFunctionType.X2_SINX);
 		
 		assertNotNull(function);
 		

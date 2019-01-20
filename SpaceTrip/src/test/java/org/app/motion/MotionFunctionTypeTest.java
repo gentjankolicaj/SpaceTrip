@@ -1,5 +1,5 @@
 package org.app.motion;
-import org.app.entities.MotionFunctionType;
+import org.app.entities.AlienMotionFunctionType;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -11,9 +11,9 @@ public class MotionFunctionTypeTest {
 
 	@Test
 	public void testGetValue() {
-		MotionFunctionType[] array=MotionFunctionType.values();
+		AlienMotionFunctionType[] array=AlienMotionFunctionType.values();
 		
-		for(MotionFunctionType var:array)
+		for(AlienMotionFunctionType var:array)
 			System.out.println(var.getValue());
 	}
 

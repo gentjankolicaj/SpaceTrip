@@ -1,6 +1,7 @@
 package org.app.motion;
 
-import org.app.entities.MotionFunctionType;
+import org.app.entities.AlienMotionFunctionType;
+import org.app.entities.MeteorMotionFunctionType;
 import org.app.util.LogUtils;
 
 /**
@@ -11,9 +12,15 @@ import org.app.util.LogUtils;
 public class FunctionFactory {
 	
 	
-	public static MotionFunction getMotionFunction(MotionFunctionType functionType) {
-		LogUtils.print("Choosed function : "+functionType.getValue());
-		return new MotionFunction(functionType);
+	public static Function getAlienFunction(AlienMotionFunctionType alienFunctionType) {
+		LogUtils.print("Alien function choosed : "+alienFunctionType.getValue());
+		return new AlienMotionFunction(alienFunctionType);
+		
+	}
+	
+	public static Function getMeteorFunction(MeteorMotionFunctionType meteorFunctionType) {
+		LogUtils.print("Meteor function choosed : "+meteorFunctionType.getValue());
+		return new MeteorMotionFunction(meteorFunctionType);
 		
 	}
 

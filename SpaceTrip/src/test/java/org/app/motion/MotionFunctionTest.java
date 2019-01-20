@@ -1,7 +1,7 @@
 package org.app.motion;
 
 import org.app.entities.Location;
-import org.app.entities.MotionFunctionType;
+import org.app.entities.AlienMotionFunctionType;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -19,11 +19,11 @@ public class MotionFunctionTest {
 	@Test
 	public void testCalculate() {
 
-		MotionFunctionType[] array = MotionFunctionType.values();
+		AlienMotionFunctionType[] array = AlienMotionFunctionType.values();
 
-		for (MotionFunctionType var : array) {
+		for (AlienMotionFunctionType var : array) {
 			
-			MotionFunction function = FunctionFactory.getMotionFunction(var);
+			Function<Location,Location> function = FunctionFactory.getAlienFunction(var);
 			int i = 0;
 			Location tmp = new Location(20,20);
 
@@ -41,11 +41,11 @@ public class MotionFunctionTest {
 
 	@Test
 	public void testCalculate2() {
-		MotionFunctionType[] array = MotionFunctionType.values();
+		AlienMotionFunctionType[] array = AlienMotionFunctionType.values();
 
-		for (MotionFunctionType var : array) {
+		for (AlienMotionFunctionType var : array) {
 			
-			MotionFunction function = FunctionFactory.getMotionFunction(var);
+			Function<Location,Location> function = FunctionFactory.getAlienFunction(var);
 			int i = 0;
 			Location tmp = new Location(20,20);
 
