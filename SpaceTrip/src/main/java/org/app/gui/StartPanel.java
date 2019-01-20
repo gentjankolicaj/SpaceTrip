@@ -128,6 +128,8 @@ public class StartPanel extends JPanel {
 				//Resquesting focus in this panel
 				//IMPORTANT:Focus must be requested in order for KeypadListener to listen in gamePanel
 				gamePanel.requestFocusInWindow();
+				
+				
 			}
 		});
 

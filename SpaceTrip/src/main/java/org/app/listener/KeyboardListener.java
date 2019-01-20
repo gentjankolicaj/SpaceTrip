@@ -11,7 +11,6 @@ public class KeyboardListener implements KeyListener{
 	
 	private SpaceShip spaceShip;
 	
-	
 
 	public KeyboardListener(SpaceShip spaceShip) {
 		super();
