@@ -25,10 +25,7 @@ public class Entity {
 		super();
 	    this.location=location;
 		this.visible = true;
-		
-		
 	}
-	
 	
 	public Entity(Location location,String imagePath) {
 		super();
@@ -45,7 +42,6 @@ public class Entity {
 		this.visible = true;
 		
 		setImageDimensions();
-	
 	}
 
 	public void setImageDimensions() {
@@ -125,7 +121,4 @@ public class Entity {
 		return new Rectangle(location.getX(),location.getY(), width, height);
 	}
 	
-	protected void move() {
-		
-	}
 }

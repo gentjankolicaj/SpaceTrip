@@ -31,13 +31,8 @@ public class SpaceShip extends Entity{
 
 	public SpaceShip(Location location) {
 		super(location);
-		loadImage(GameConfig.SPACESHIP_1);
+		loadImage(GameConfig.SPACESHIP_IMAGE_1);
 		this.missiles=new ArrayList<>();
-	}
-
-	
-    public void move() {
-		
 	}
     
     

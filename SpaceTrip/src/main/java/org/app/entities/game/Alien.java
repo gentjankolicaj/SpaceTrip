@@ -8,26 +8,32 @@ import org.app.entities.Location;
  * @author gentjan kolicaj
  */
 public class Alien extends Entity {
+	
+	private int strength;
 
 	public Alien(Location location, Image image) {
 		super(location, image);
-		// TODO Auto-generated constructor stub
+		this.strength=3;
 	}
 
 	public Alien(Location location, String imagePath) {
 		super(location, imagePath);
-		// TODO Auto-generated constructor stub
+		this.strength=3;
 	}
 
 	public Alien(Location location) {
 		super(location);
-		// TODO Auto-generated constructor stub
+		this.strength=3;
 	}
 
-	
-	public void move() {
-		
+	public int getStrength() {
+		return strength;
 	}
+
+	public void setStrength(int strength) {
+		this.strength = strength;
+	}
+
 
 	
 

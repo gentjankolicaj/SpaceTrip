@@ -3,6 +3,7 @@ package org.app.entities.game;
 import java.awt.Image;
 
 import org.app.entities.Location;
+import org.app.globals.GameConfig;
 
 /**
  * 
@@ -24,11 +25,8 @@ public class Meteor extends Entity {
 
 	public Meteor(Location location) {
 		super(location);
-		// TODO Auto-generated constructor stub
+		loadImage(GameConfig.METEOR_IMAGE);
 	}
 
-	public void move() {
-		
-	}
 
 }
