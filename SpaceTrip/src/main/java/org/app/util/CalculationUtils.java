@@ -77,28 +77,7 @@ public class CalculationUtils {
 	}
 	
 	
-	
-	public static int[][] getRandomArray2D(int maxValue, int dimSize) {
-		Random tempRand = new Random();
-		int temp = Math.abs(GameConfig.DISTANCE_FROM_SHIP_AT_START - maxValue);
-		int[][] tempArray = new int[dimSize][dimSize];
 
-		for (int i = 0; i < tempArray.length; i++) {
-			for (int j = 0; j < tempArray[i].length; j++) {
-				int tempValue = tempRand.nextInt(temp) +GameConfig.DISTANCE_FROM_SHIP_AT_START;
-				int tempValue2 = tempRand.nextInt(temp) + GameConfig.DISTANCE_FROM_SHIP_AT_START;
-				while ((Math.abs(tempValue - tempValue2)) < GameConfig.MIN_DIFF_BETWEEN_COORDS) {
-					tempValue2 = generateAnother(tempRand, temp) + GameConfig.DISTANCE_FROM_SHIP_AT_START;
-				}
-				tempArray[i][j] = tempValue;
-
-			}
-
-		}
-
-		return tempArray;
-	}
-	
 	
 	private static int generateAnother(Random random, int maxValue) {
 		return random.nextInt(maxValue) + 1;
