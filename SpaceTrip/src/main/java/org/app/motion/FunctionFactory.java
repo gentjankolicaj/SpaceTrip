@@ -1,7 +1,5 @@
 package org.app.motion;
 
-import org.app.entities.AlienMotionFunctionType;
-import org.app.entities.MeteorMotionFunctionType;
 import org.app.util.LogUtils;
 
 /**

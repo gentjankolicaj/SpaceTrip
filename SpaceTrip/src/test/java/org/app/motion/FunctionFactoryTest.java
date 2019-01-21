@@ -4,7 +4,6 @@ package org.app.motion;
 import static org.junit.Assert.assertNotNull;
 
 import org.app.entities.Location;
-import org.app.entities.AlienMotionFunctionType;
 import org.junit.Before;
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package org.app.entities;
+package org.app.motion;
 /**
  * 
  * @author gentjan kolicaj

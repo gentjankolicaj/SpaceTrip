@@ -1,5 +1,4 @@
 package org.app.motion;
-import org.app.entities.AlienMotionFunctionType;
 import org.junit.Before;
 import org.junit.Test;
 

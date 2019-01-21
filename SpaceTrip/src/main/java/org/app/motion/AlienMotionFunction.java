@@ -1,7 +1,6 @@
 package org.app.motion;
 
 import org.app.entities.Location;
-import org.app.entities.AlienMotionFunctionType;
 import org.app.exceptions.BumpException;
 import org.app.util.CalculationUtils;
 import org.app.util.LogUtils;

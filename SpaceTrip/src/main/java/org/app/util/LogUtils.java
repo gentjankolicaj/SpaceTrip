@@ -2,7 +2,6 @@ package org.app.util;
 
 import java.util.logging.Logger;
 
-import org.app.entities.LoggerType;
 import org.app.globals.AppConfig;
 
 /**

@@ -1,7 +1,6 @@
 package org.app.motion;
 
 import org.app.entities.Location;
-import org.app.entities.MeteorMotionFunctionType;
 import org.app.exceptions.BumpException;
 import org.app.globals.GameConfig;
 import org.app.util.LogUtils;
