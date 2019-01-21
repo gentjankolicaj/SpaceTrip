@@ -12,22 +12,24 @@ import java.util.List;
 import java.util.Random;
 
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-import org.app.entities.AlienMotionFunctionType;
 import org.app.entities.Location;
-import org.app.entities.MeteorMotionFunctionType;
 import org.app.entities.game.Alien;
 import org.app.entities.game.Meteor;
 import org.app.entities.game.Missile;
+import org.app.entities.game.Planet;
 import org.app.entities.game.SpaceShip;
 import org.app.globals.AppConfig;
 import org.app.globals.AppStrings;
 import org.app.globals.GameConfig;
 import org.app.listener.KeyboardListener;
+import org.app.motion.AlienMotionFunctionType;
 import org.app.motion.Function;
 import org.app.motion.FunctionFactory;
+import org.app.motion.MeteorMotionFunctionType;
 
 /**
  * 
@@ -41,7 +43,21 @@ public class GamePanel extends JPanel implements ActionListener{
 	private static final long INIT_TIME = System.currentTimeMillis();
 
 	private JPanel instance;
+	
+	
 	private InfoPanel infoPanel;
+	private JLabel lblPoints;
+	private JLabel lblLife;
+	private JLabel lblTime;
+	private JLabel lblAlien;
+	private JLabel lblMeteor;
+	private JLabel lblPlanet;
+	private JLabel lblX;
+	private JLabel lblY;
+	private JLabel lblLevel;
+	
+	
+	
 	private KeyboardListener keyboardListener;
 	private Timer timer;
 	private Random random = new Random();
@@ -49,6 +65,10 @@ public class GamePanel extends JPanel implements ActionListener{
 	private boolean inGame;
 	private int lifes;
 	private int gameLevel;
+	private int points;
+	private long time;
+    private Planet planet;
+    
 	private int dayQuoteIndex = random.nextInt(AppStrings.quotes.length);
 
 	private String backgroundImage;
@@ -64,7 +84,7 @@ public class GamePanel extends JPanel implements ActionListener{
 		setLayout(null);
 		this.infoPanel = infoPanel;
 
-		setFirstLevel();
+		setInitialState();
 
 		this.keyboardListener = new KeyboardListener(spaceShip);
 
@@ -106,6 +126,18 @@ public class GamePanel extends JPanel implements ActionListener{
 	}
 
 	private void updateInfoLabels() {
+		    long elapsedTime=(System.currentTimeMillis()-time)/6000; //in seconds
+		    
+		    this.lblPoints.setText(""+points);
+			this.lblLife.setText(""+lifes);
+			this.lblTime.setText(""+elapsedTime);
+		    this.lblAlien.setText(""+aliens.size());
+			this.lblMeteor.setText(""+meteors.size());
+			this.lblPlanet.setText(planet.getType().getValue());
+			this.lblX.setText(""+spaceShip.getLocation().getX());
+			this.lblY.setText(""+spaceShip.getLocation().getY());
+			this.lblLevel.setText(""+gameLevel);
+			
 		
 
 	}
@@ -193,10 +225,26 @@ public class GamePanel extends JPanel implements ActionListener{
 		}
 	}
 
-	private void setFirstLevel() {
+	private void setInitialState() {
 		this.inGame = true;
+		
+        this.lblPoints=infoPanel.getPoints();
+		this.lblLife=infoPanel.getLife();
+		this.lblTime=infoPanel.getTime();
+	    this.lblAlien=infoPanel.getAlien();
+		this.lblMeteor=infoPanel.getMeteor();
+		this.lblPlanet=infoPanel.getPlanet();
+		this.lblX=infoPanel.getLblX();
+		this.lblY=infoPanel.getLblY();
+		this.lblLevel=infoPanel.getLblLevel();
+		
+		this.points=0;
+		this.planet=GameConfig.PLANET_ORDER[0];
+		this.time=System.currentTimeMillis();
 		this.lifes = GameConfig.lifes;
 		this.gameLevel = GameConfig.startLevel;
+		
+		
 		this.backgroundImage = GameConfig.PLANET_ORDER[0].getImageResource();
 
 		this.meteorMotionFunction = MeteorMotionFunctionType.X_Y0;
@@ -302,6 +350,7 @@ public class GamePanel extends JPanel implements ActionListener{
 		g.drawString("\"" + AppStrings.quotes[dayQuoteIndex] + "\"",
 				(AppConfig.GAME_PANEL_WIDTH - fM.stringWidth(AppStrings.quotes[dayQuoteIndex]) - 30) / 2,
 				(int) (AppConfig.GAME_PANEL_HEIGHT - AppConfig.GAME_PANEL_HEIGHT * 0.7));
+		
 
 	}
 

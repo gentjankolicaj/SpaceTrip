@@ -57,7 +57,7 @@ public class AppStrings {
 	public static Map<LanguageType, StringLabel> points = new HashMap();
 	public static Map<LanguageType,StringLabel> life=new HashMap();
 	public static Map<LanguageType,StringLabel> time=new HashMap();
-	
+	public static Map<LanguageType,StringLabel> level=new HashMap();
 	
 	public static Map<LanguageType, StringLabel> alien= new HashMap();
 	public static Map<LanguageType,StringLabel> meteor=new HashMap();
@@ -206,11 +206,17 @@ public class AppStrings {
 		life.put(LanguageType.FRENCH,new StringLabel(LanguageType.FRENCH,"L' vie : "));
 		
 		
-		time.put(LanguageType.ENGLISH,new StringLabel(LanguageType.ENGLISH,"Time : "));
-		time.put(LanguageType.ALBANIAN,new StringLabel(LanguageType.ALBANIAN,"Koha : "));
-		time.put(LanguageType.ITALIAN,new StringLabel(LanguageType.ITALIAN,"Tempo : "));
-		time.put(LanguageType.GERMAN,new StringLabel(LanguageType.GERMAN,"Zeit : "));
-		time.put(LanguageType.FRENCH,new StringLabel(LanguageType.FRENCH,"Temps : "));
+		time.put(LanguageType.ENGLISH,new StringLabel(LanguageType.ENGLISH,"Elapsed time : "));
+		time.put(LanguageType.ALBANIAN,new StringLabel(LanguageType.ALBANIAN,"Koha e harxhuar : "));
+		time.put(LanguageType.ITALIAN,new StringLabel(LanguageType.ITALIAN,"Tempo trascorso : "));
+		time.put(LanguageType.GERMAN,new StringLabel(LanguageType.GERMAN,"verstrichene Zeit : "));
+		time.put(LanguageType.FRENCH,new StringLabel(LanguageType.FRENCH,"Temps écoulé : "));
+		
+		level.put(LanguageType.ENGLISH,new StringLabel(LanguageType.ENGLISH,"Level : "));
+		level.put(LanguageType.ALBANIAN,new StringLabel(LanguageType.ALBANIAN,"Niveli : "));
+		level.put(LanguageType.ITALIAN,new StringLabel(LanguageType.ITALIAN,"Livello : "));
+		level.put(LanguageType.GERMAN,new StringLabel(LanguageType.GERMAN,"das Niveau : "));
+		level.put(LanguageType.FRENCH,new StringLabel(LanguageType.FRENCH,"Niveau : "));
 			
 		
 		alien.put(LanguageType.ENGLISH,new StringLabel(LanguageType.ENGLISH,"Alien :"));

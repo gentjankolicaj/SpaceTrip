@@ -13,6 +13,11 @@ import org.app.globals.AppStrings;
 
 public class InfoPanel extends JPanel {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5721034667703751645L;
+	
 	private JPanel instance;
 	private JLabel lblPoints;
 	private JLabel lblLife;
@@ -26,6 +31,10 @@ public class InfoPanel extends JPanel {
 	private JLabel time;
 	private JLabel life;
 	private JLabel points;
+	private JLabel lblX;
+	private JLabel lblY;
+	private JLabel lblLev;
+	private JLabel lblLevel;
 
 	public InfoPanel() {
 		this.instance = this;
@@ -44,29 +53,29 @@ public class InfoPanel extends JPanel {
 
 		lblPoints = new JLabel(AppStrings.points.get(language).getContent());
 		lblPoints.setHorizontalAlignment(SwingConstants.TRAILING);
-		lblPoints.setBounds(10, 11, 78, 18);
+		lblPoints.setBounds(10, 11, 148, 18);
 		add(lblPoints);
 
 		lblLife = new JLabel(AppStrings.life.get(language).getContent());
 		lblLife.setHorizontalAlignment(SwingConstants.TRAILING);
-		lblLife.setBounds(10, 40, 78, 18);
+		lblLife.setBounds(10, 40, 148, 18);
 		add(lblLife);
 
 		lblTime = new JLabel(AppStrings.time.get(language).getContent());
 		lblTime.setHorizontalAlignment(SwingConstants.TRAILING);
-		lblTime.setBounds(10, 70, 78, 18);
+		lblTime.setBounds(10, 70, 148, 18);
 		add(lblTime);
 
 		points = new JLabel("");
-		points.setBounds(106, 11, 68, 18);
+		points.setBounds(168, 11, 68, 18);
 		add(points);
 
 		life = new JLabel("");
-		life.setBounds(106, 40, 68, 18);
+		life.setBounds(168, 40, 68, 18);
 		add(life);
 
 		time = new JLabel("");
-		time.setBounds(106, 70, 68, 18);
+		time.setBounds(168, 70, 68, 18);
 		add(time);
 
 		lblAlien = new JLabel(AppStrings.alien.get(language).getContent());
@@ -95,6 +104,33 @@ public class InfoPanel extends JPanel {
 		planet = new JLabel("");
 		planet.setBounds(421, 70, 68, 18);
 		add(planet);
+		
+		JLabel lblCoordX = new JLabel("X :");
+		lblCoordX.setHorizontalAlignment(SwingConstants.TRAILING);
+		lblCoordX.setBounds(499, 11, 125, 18);
+		add(lblCoordX);
+		
+		lblX = new JLabel("");
+		lblX.setBounds(634, 11, 68, 18);
+		add(lblX);
+		
+		JLabel lblCoordY = new JLabel("Y :");
+		lblCoordY.setHorizontalAlignment(SwingConstants.TRAILING);
+		lblCoordY.setBounds(499, 40, 125, 18);
+		add(lblCoordY);
+		
+		lblY = new JLabel("");
+		lblY.setBounds(634, 40, 68, 18);
+		add(lblY);
+		
+		lblLev = new JLabel(AppStrings.level.get(language).getContent());
+		lblLev.setHorizontalAlignment(SwingConstants.TRAILING);
+		lblLev.setBounds(499, 70, 125, 18);
+		add(lblLev);
+		
+		lblLevel = new JLabel("");
+		lblLevel.setBounds(634, 70, 68, 18);
+		add(lblLevel);
 
 	}
 
@@ -201,7 +237,38 @@ public class InfoPanel extends JPanel {
 	public void setPoints(JLabel points) {
 		this.points = points;
 	}
-	
-	
+
+	public JLabel getLblX() {
+		return lblX;
+	}
+
+	public void setLblX(JLabel lblX) {
+		this.lblX = lblX;
+	}
+
+	public JLabel getLblY() {
+		return lblY;
+	}
+
+	public void setLblY(JLabel lblY) {
+		this.lblY = lblY;
+	}
+
+	public JLabel getLblLev() {
+		return lblLev;
+	}
+
+	public void setLblLev(JLabel lblLev) {
+		this.lblLev = lblLev;
+	}
+
+	public JLabel getLblLevel() {
+		return lblLevel;
+	}
+
+	public void setLblLevel(JLabel lblLevel) {
+		this.lblLevel = lblLevel;
+	}
+
 
 }

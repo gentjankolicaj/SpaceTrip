@@ -9,7 +9,7 @@ public class GameConfig {
 	//Game configs
 	public static int lifes=10;
 	public static int startLevel=1;
-	public static final int EVENT_THROWING_DELAY=15;
+	public static final int EVENT_THROWING_DELAY=200;
 	
 	
 	
