@@ -11,6 +11,12 @@ import org.app.entities.general.LanguageType;
 import org.app.globals.AppConfig;
 import org.app.globals.AppStrings;
 
+
+/**
+ * @author gentjan kolicaj
+ * 
+ * 					
+ */
 public class InfoPanel extends JPanel {
 
 	/**

@@ -1,5 +1,11 @@
 package org.app.entities.game;
 
+
+/**
+ * @author gentjan kolicaj
+ * 
+ * 					
+ */
 public class Planet {
 
 	private PlanetType type;

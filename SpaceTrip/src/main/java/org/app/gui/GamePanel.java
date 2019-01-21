@@ -30,6 +30,8 @@ import org.app.motion.AlienMotionFunctionType;
 import org.app.motion.Function;
 import org.app.motion.FunctionFactory;
 import org.app.motion.MeteorMotionFunctionType;
+import org.app.util.LocationUtils;
+
 
 /**
  * 
@@ -40,10 +42,9 @@ import org.app.motion.MeteorMotionFunctionType;
 public class GamePanel extends JPanel implements ActionListener{
 
 	private static final long serialVersionUID = -727575640775966022L;
-	private static final long INIT_TIME = System.currentTimeMillis();
-
-	private JPanel instance;
+	private static final long INIT_TIME=System.currentTimeMillis();
 	
+	private JPanel instance;
 	
 	private InfoPanel infoPanel;
 	private JLabel lblPoints;
@@ -65,17 +66,18 @@ public class GamePanel extends JPanel implements ActionListener{
 	private boolean inGame;
 	private int lifes;
 	private int gameLevel;
-	private int points;
-	private long time;
+	private static int points;
     private Planet planet;
+    private static int meteorHit;
+    private static int alienHit;
     
 	private int dayQuoteIndex = random.nextInt(AppStrings.quotes.length);
 
 	private String backgroundImage;
 	private SpaceShip spaceShip;
-	private volatile List<Meteor> meteors;
-	private volatile List<Alien> aliens;
-	private volatile List<Missile> missiles;
+	private List<Meteor> meteors;
+	private List<Alien> aliens;
+	private List<Missile> missiles;
 	private MeteorMotionFunctionType meteorMotionFunction;
 	private AlienMotionFunctionType alienMotionFunction;
 
@@ -99,44 +101,57 @@ public class GamePanel extends JPanel implements ActionListener{
 	
 	public void run() {
 
-			moveSpaceShip();
-
-			moveMissile();
-
-			moveMeteor();
-
-			moveAlien();
-
+		if (gameLevel >7) {
 			try {
-				
-			checkEntityCollision();
-			
-			}catch(ConcurrentModificationException c) {
-				c.printStackTrace();
+
+				Thread.sleep(10000);
+
+			} catch (InterruptedException e) {
+
+				e.printStackTrace();
 			}
+			System.out.println("===> Game close at level 8.");
+			System.exit(1); // Shutdown program
+		}
 
-			updateInfoLabels();
+		removeUnusedEntities();
 
-			// changeLevel();
+		moveSpaceShip();
 
-			repaint();
+		moveMissile();
 
-		
+		moveMeteor();
+
+		moveAlien();
+
+		try {
+
+			checkEntityCollision();
+
+		} catch (ConcurrentModificationException c) {
+			c.printStackTrace();
+		}
+
+		updateInfoLabels();
+
+		changeLevel();
+
+		repaint();
 
 	}
 
 	private void updateInfoLabels() {
-		    long elapsedTime=(System.currentTimeMillis()-time)/6000; //in seconds
+		    long elapsedTime=(System.currentTimeMillis()-INIT_TIME)/6000; //in seconds
 		    
 		    this.lblPoints.setText(""+points);
 			this.lblLife.setText(""+lifes);
 			this.lblTime.setText(""+elapsedTime);
-		    this.lblAlien.setText(""+aliens.size());
-			this.lblMeteor.setText(""+meteors.size());
+		    this.lblAlien.setText(""+alienHit);
+			this.lblMeteor.setText(""+meteorHit);
 			this.lblPlanet.setText(planet.getType().getValue());
 			this.lblX.setText(""+spaceShip.getLocation().getX());
 			this.lblY.setText(""+spaceShip.getLocation().getY());
-			this.lblLevel.setText(""+gameLevel);
+			this.lblLevel.setText(""+(gameLevel+1));
 			
 		
 
@@ -144,35 +159,47 @@ public class GamePanel extends JPanel implements ActionListener{
 
 	private void checkEntityCollision() throws ConcurrentModificationException{
 		// Check for Meteor+Spaceship+Missile collision
-			for (Meteor var : meteors) {
-				if (var.getBounds().intersects(spaceShip.getBounds()))
-					this.lifes = this.lifes - 1;
+		for (Meteor var : meteors) {
+			if (var.getBounds().intersects(spaceShip.getBounds())) {
+				this.lifes = this.lifes - 1;
+				 meteors.remove(var);
+				
+				 if(lifes<0)
+					 closeGame();
+				
+		      	}
 
-				for (Missile miss : missiles) {
-					if (miss.getBounds().intersects(var.getBounds())) {
-						meteors.remove(var);
-						missiles.remove(miss);
-					}
+			for (Missile miss : missiles) {
+				if (miss.getBounds().intersects(var.getBounds())) {
+					points = points + 1;
+					meteorHit=meteorHit+1;
+					meteors.remove(var);
+					missiles.remove(miss);
 				}
-
 			}
 
-		
+		}
 
 		// Check for Alien+Spaceship collision
 		for (Alien var : aliens) {
 			if (var.getBounds().intersects(spaceShip.getBounds()))
 				this.lifes = this.lifes - 2;
+			    if(lifes<0)
+			    	closeGame();
 		}
 
 		// Check for Alien+Missile collision
 		for (Missile var : missiles) {
 			for (Alien al : aliens) {
 				if (var.getBounds().intersects(al.getBounds())) {
-					if (al.getStrength() > 0)
+					if (al.getStrength() > 0) {
 						al.setStrength(al.getStrength() - 1);
-					else
+						points = points + 2;
+					} else {
 						aliens.remove(al);
+						points = points + 3;
+						alienHit=alienHit+1;
+					}
 
 				}
 
@@ -183,6 +210,7 @@ public class GamePanel extends JPanel implements ActionListener{
 
 	private void moveAlien() {
 		Function<Location, Location> function = FunctionFactory.getAlienFunction(alienMotionFunction);
+		function.prepareFunction(new Integer(GameConfig.alienBumps)); //set number of bumps on screen
 		for (Alien var : aliens) {
 			function.calculate(var.getLocation());
 		}
@@ -216,7 +244,7 @@ public class GamePanel extends JPanel implements ActionListener{
 	}
 
 	private boolean isInGame() {
-		if (lifes >= 0) {
+		if (lifes > 0) {
 			inGame = true;
 			return inGame;
 		} else {
@@ -239,8 +267,9 @@ public class GamePanel extends JPanel implements ActionListener{
 		this.lblLevel=infoPanel.getLblLevel();
 		
 		this.points=0;
+		meteorHit=0;
+		alienHit=0;
 		this.planet=GameConfig.PLANET_ORDER[0];
-		this.time=System.currentTimeMillis();
 		this.lifes = GameConfig.lifes;
 		this.gameLevel = GameConfig.startLevel;
 		
@@ -255,19 +284,17 @@ public class GamePanel extends JPanel implements ActionListener{
 		this.aliens = new ArrayList<>();
 
 		// Creation of meteors for the fist time
+		Location[] meteorLocationArray=LocationUtils.getRandomMeteorLocation(gameLevel);
 		for (int m = 0; m < GameConfig.METEORS_PER_LEVEL[0]; m++) {
-			Meteor meteor = new Meteor(
-					new Location(GameConfig.METEOR_INIT_X+random.nextInt(25), random.nextInt(GameConfig.METEOR_INIT_Y)));
+			Meteor meteor = new Meteor(meteorLocationArray[m]);
 			meteor.setVisible(true);
 			meteors.add(meteor);
 		}
 
-		// Creation of aliens for the fist time
+		Location[] alienLocationArray=LocationUtils.getRandomAlienLocation(gameLevel);
 		for (int a = 0; a < GameConfig.ALIEN_PER_LEVEL[0]; a++) {
-			Alien alien = new Alien(
-					new Location(GameConfig.ALIEN_INIT_X+random.nextInt(25), random.nextInt(GameConfig.ALIEN_INIT_Y)),
-					GameConfig.ALIEN_IMAGE_1);
-			alien.setVisible(false);
+			Alien alien = new Alien(alienLocationArray[a]);
+			alien.setVisible(true);
 			aliens.add(alien);
 
 		}
@@ -277,9 +304,12 @@ public class GamePanel extends JPanel implements ActionListener{
 	private void changeLevel() {
 		if (GameConfig.NEXT_LEVEL_CONDITION[gameLevel] <= calculateConditions()) {
 			++gameLevel;
-			if (gameLevel < GameConfig.PLANET_ORDER.length) {
+			if (gameLevel <= GameConfig.PLANET_ORDER.length-1) {
 				backgroundImage = GameConfig.PLANET_ORDER[gameLevel].getImageResource();
-
+				meteors=createNewMeteors(gameLevel);
+				aliens=createNewAliens(gameLevel);
+				planet=GameConfig.PLANET_ORDER[gameLevel];
+               
 			} else {
 				backgroundImage = GameConfig.END_IMAGE;
 				inGame = false;
@@ -287,6 +317,7 @@ public class GamePanel extends JPanel implements ActionListener{
 				meteors.clear();
 				aliens.clear();
 				missiles.clear();
+				planet=null;
 			}
 		}
 
@@ -298,7 +329,7 @@ public class GamePanel extends JPanel implements ActionListener{
 	}
 
 	private int getDestroyedMeteors() {
-		return GameConfig.METEORS_PER_LEVEL[gameLevel] - meteors.size();
+		return meteorHit;
 
 	}
 
@@ -403,5 +434,92 @@ public class GamePanel extends JPanel implements ActionListener{
 	
 	
 	
+	//==============================================================================================
+	//============================ some util methods ===============================================
+	private void removeUnusedMissiles() {
+        List<Missile> list=spaceShip.getMissiles();
+		for(Missile var:list) {
+			if(var.getLocation().getX()>AppConfig.GAME_PANEL_WIDTH) {
+				list.remove(var);
+			}
+		}
+	}
+
+	private void removeUnusedMeteors() {
+		for(Meteor var:meteors) {
+			if(var.getLocation().getX()<-80) {
+				meteors.remove(var);
+			}
+		}
+
+	}
+	
+	private void removeUnusedAliens() {
+		for(Alien var:aliens) {
+			if(var.getLocation().getX()<-80) {
+				aliens.remove(var);
+				this.lifes=this.lifes-2;
+			}
+		}
+
+	}
+
+
+	private void removeUnusedEntities() {
+		try {
+
+			removeUnusedMissiles();
+			removeUnusedMeteors();
+			removeUnusedAliens();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	private List<Meteor> createNewMeteors(int gameLevel) {
+		List<Meteor> list=new ArrayList<>();
+		Location[] meteorLocationArray=LocationUtils.getRandomMeteorLocation(gameLevel);
+		for (int m = 0; m < GameConfig.METEORS_PER_LEVEL[gameLevel]; m++) {
+			Meteor meteor = new Meteor(meteorLocationArray[m]);
+			meteor.setVisible(true);
+			list.add(meteor);
+		}
+		return list;
+		
+	}
+	
+	private List<Alien> createNewAliens(int gameLevel) {
+		List<Alien> list=new ArrayList<>();
+		Location[] alienLocationArray=LocationUtils.getRandomAlienLocation(gameLevel);
+		for (int a = 0; a < GameConfig.ALIEN_PER_LEVEL[gameLevel]; a++) {
+			Alien alien = new Alien(alienLocationArray[a]);
+			alien.setVisible(true);
+			list.add(alien);
+
+		}
+		
+		return list;
+	}
+	
+	
+	private void closeGame() {
+		updateInfoLabels();
+		repaint();
+		
+			try {
+				
+				Thread.sleep(10000);
+				
+			} catch (InterruptedException e) {
+				
+				e.printStackTrace();
+			}
+			System.exit(1); //Close program 
+		
+	}
+	
+
 
 }

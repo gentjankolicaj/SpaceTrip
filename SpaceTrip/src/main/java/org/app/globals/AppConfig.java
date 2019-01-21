@@ -2,6 +2,7 @@ package org.app.globals;
 
 import org.app.entities.general.LanguageType;
 import org.app.util.LoggerType;
+import org.app.util.StringType;
 
 /**
  * 
@@ -13,6 +14,7 @@ public class AppConfig {
 	
 	public static LanguageType AppLanguage=LanguageType.ALBANIAN;
 	public static final LoggerType LOGGER_TYPE=LoggerType.CONSOLE_OUT;
+	public static final StringType STRING_TYPE=StringType.JSON; //types of string to print
 	
 	
 	

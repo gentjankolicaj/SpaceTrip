@@ -23,11 +23,13 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ActionEvent;
 import java.awt.event.ItemListener;
 
+/**
+ * @author gentjan kolicaj
+ * 
+ * 					
+ */
 public class StartPanel extends JPanel {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -932527131206324423L;
 	private JPanel instance;
 

@@ -3,6 +3,7 @@ package org.app.entities.game;
 import java.awt.Image;
 
 import org.app.entities.Location;
+import org.app.globals.GameConfig;
 
 /**
  * @author gentjan kolicaj
@@ -23,6 +24,7 @@ public class Alien extends Entity {
 
 	public Alien(Location location) {
 		super(location);
+		loadImage(GameConfig.ALIEN_IMAGE_1);
 		this.strength=3;
 	}
 

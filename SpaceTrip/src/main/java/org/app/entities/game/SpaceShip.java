@@ -12,7 +12,7 @@ import org.app.globals.GameConfig;
 
 /**
  * 
- * @author-Gentjan_Kolicaj
+ * @author gentjan kolicaj
  *
  */
 public class SpaceShip extends Entity{
