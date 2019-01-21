@@ -9,6 +9,12 @@ import javax.swing.JPanel;
 
 import org.app.globals.AppConfig;
 
+
+/**
+ * @author gentjan kolicaj
+ * 
+ * 					
+ */
 public class PanelUtils {
 
 	

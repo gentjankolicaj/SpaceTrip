@@ -4,8 +4,6 @@ import java.awt.EventQueue;
 
 import org.app.gui.ApplicationWindow;
 
-
-
 /**
  * 
  * @author gentjan kolicaj

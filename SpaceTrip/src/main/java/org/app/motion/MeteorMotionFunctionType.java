@@ -1,5 +1,10 @@
 package org.app.motion;
 
+/**
+ * @author gentjan kolicaj
+ * 
+ * 					
+ */
 public enum MeteorMotionFunctionType  {
 	
 	X_Y0("X_Y0"),X2_Y0("X2_Y0"),X3_Y0("X3_Y0"),X4_Y0("X4_Y0");

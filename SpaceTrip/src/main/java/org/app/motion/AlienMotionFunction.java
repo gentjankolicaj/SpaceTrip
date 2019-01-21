@@ -11,6 +11,9 @@ import org.app.util.LogUtils;
  *
  */
 public class AlienMotionFunction implements Function<Location, Location> {
+	
+	//Todo: to be implemented speed so it can be configured at GameConfig.
+	//Todo: I will be doing it when I will have free time.(And maybe i will develop anther game).
 
 	private AlienMotionFunctionType functionType;
 	
