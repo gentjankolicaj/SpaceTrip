@@ -4,12 +4,16 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.ConcurrentModificationException;
 import java.util.List;
 import java.util.Random;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 import org.app.entities.AlienMotionFunctionType;
 import org.app.entities.Location;
@@ -31,7 +35,7 @@ import org.app.motion.FunctionFactory;
  * 
  * 
  */
-public class GamePanel extends JPanel implements Runnable{
+public class GamePanel extends JPanel implements ActionListener{
 
 	private static final long serialVersionUID = -727575640775966022L;
 	private static final long INIT_TIME = System.currentTimeMillis();
@@ -39,7 +43,7 @@ public class GamePanel extends JPanel implements Runnable{
 	private JPanel instance;
 	private InfoPanel infoPanel;
 	private KeyboardListener keyboardListener;
-	private Thread thread;
+	private Timer timer;
 	private Random random = new Random();
 
 	private boolean inGame;
@@ -66,16 +70,14 @@ public class GamePanel extends JPanel implements Runnable{
 
 		addKeyListener(keyboardListener);
 
-		thread =new Thread(this);
-		thread.start();
+		timer=new Timer(GameConfig.EVENT_THROWING_DELAY,this);//This timer is going to throw event by a specific frequencies,than event is going to be handled by ActionListener
+		timer.start();
 
 	}
 
 
-	@Override
+	
 	public void run() {
-
-		while (isInGame()) {
 
 			moveSpaceShip();
 
@@ -85,22 +87,21 @@ public class GamePanel extends JPanel implements Runnable{
 
 			moveAlien();
 
+			try {
+				
 			checkEntityCollision();
+			
+			}catch(ConcurrentModificationException c) {
+				c.printStackTrace();
+			}
 
 			updateInfoLabels();
 
 			// changeLevel();
 
-			try {
-				Thread.sleep(500);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
 			repaint();
 
-		}
+		
 
 	}
 
@@ -109,33 +110,30 @@ public class GamePanel extends JPanel implements Runnable{
 
 	}
 
-	private void checkEntityCollision() {
-		
-		//Check for Meteor+Spaceship+Missile collision
-			
+	private void checkEntityCollision() throws ConcurrentModificationException{
+		// Check for Meteor+Spaceship+Missile collision
 			for (Meteor var : meteors) {
-			if (var.getBounds().intersects(spaceShip.getBounds()))
-				this.lifes = this.lifes - 1;
+				if (var.getBounds().intersects(spaceShip.getBounds()))
+					this.lifes = this.lifes - 1;
 
-			for (Missile miss : missiles) {
-				if (miss.getBounds().intersects(var.getBounds()))
-					meteors.remove(var);
+				for (Missile miss : missiles) {
+					if (miss.getBounds().intersects(var.getBounds())) {
+						meteors.remove(var);
+						missiles.remove(miss);
+					}
+				}
+
 			}
 
-		}
-			
-	
-		
-		
 		
 
-		//Check for Alien+Spaceship collision
+		// Check for Alien+Spaceship collision
 		for (Alien var : aliens) {
 			if (var.getBounds().intersects(spaceShip.getBounds()))
 				this.lifes = this.lifes - 2;
 		}
 
-		//Check for Alien+Missile collision
+		// Check for Alien+Missile collision
 		for (Missile var : missiles) {
 			for (Alien al : aliens) {
 				if (var.getBounds().intersects(al.getBounds())) {
@@ -257,8 +255,7 @@ public class GamePanel extends JPanel implements Runnable{
 	}
 
 	// ==================================================================================================
-	// ============================= GamePanel component
-	// paint===========================================
+	// ============================= GamePanel component paint===========================================
 	// ==================================================================================================
 
 	@Override
@@ -343,5 +340,19 @@ public class GamePanel extends JPanel implements Runnable{
 			}
 
 	}
+
+
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		//1.Timer throws an event at this panel with a frequency of GameConfig.EVENT_THROWING_DELAY
+		//2.Event thrown by timer causes this method of listener to be called 
+		//3.As a result,run method of game is called.
+		run(); 
+		
+	}
+	
+	
+	
 
 }
