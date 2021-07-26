@@ -18,11 +18,9 @@ import org.app.globals.AppStrings;
 public class ApplicationWindow extends JFrame {
 
 	private static final long serialVersionUID = -7116512274697755254L;
-	private JFrame instance;
 	private StartPanel startPanel;
 
 	public ApplicationWindow() {
-		this.instance = this;
 		startPanel = new StartPanel(this);
 
 		Container container = getContentPane();

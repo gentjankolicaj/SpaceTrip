@@ -13,12 +13,9 @@ import org.app.util.LogUtils;
 public class MeteorMotionFunction implements Function<Location, Location> {
 
 	private MeteorMotionFunctionType functionType;
-	
-	private int bumps;
 
 	MeteorMotionFunction(MeteorMotionFunctionType functionType) {
 		this.functionType = functionType;
-		this.bumps=1;
 	}
 
 	

@@ -8,7 +8,7 @@ import org.app.entities.general.StringLabel;
 
 /**
  * 
- * @author gentjan koliçaj
+ * @author gentjan kolicaj
  *
  */
 public class AppStrings {
@@ -71,7 +71,7 @@ public class AppStrings {
 		
 		//welcomeMessage initialization of values
 		welcomeMessage.put(LanguageType.ENGLISH,new StringLabel(LanguageType.ENGLISH,"Hi,Welcome to SpaceTrip."));
-		welcomeMessage.put(LanguageType.ALBANIAN,new StringLabel(LanguageType.ALBANIAN,"Pershendetje, Mirësevini në SpaceTrip."));
+		welcomeMessage.put(LanguageType.ALBANIAN,new StringLabel(LanguageType.ALBANIAN,"Pershendetje, Miresevini ne SpaceTrip."));
 		welcomeMessage.put(LanguageType.ITALIAN,new StringLabel(LanguageType.ITALIAN,"Ciao, benvenuto su SpaceTrip."));
 		welcomeMessage.put(LanguageType.GERMAN,new StringLabel(LanguageType.GERMAN,"Hallo, Willkommen bei SpaceTrip."));
 		welcomeMessage.put(LanguageType.FRENCH,new StringLabel(LanguageType.FRENCH,"Bonjour, bienvenue sur SpaceTrip."));
@@ -80,7 +80,7 @@ public class AppStrings {
     	//======================================================================================
 		
 		start.put(LanguageType.ENGLISH,new StringLabel(LanguageType.ENGLISH,"Start"));
-		start.put(LanguageType.FRENCH,new StringLabel(LanguageType.FRENCH,"Début"));
+		start.put(LanguageType.FRENCH,new StringLabel(LanguageType.FRENCH,"Debut"));
 		start.put(LanguageType.GERMAN,new StringLabel(LanguageType.GERMAN,"Start"));
 		start.put(LanguageType.ITALIAN,new StringLabel(LanguageType.ITALIAN,"Inizio"));
 		start.put(LanguageType.ALBANIAN,new StringLabel(LanguageType.ALBANIAN,"Fillo"));
@@ -89,12 +89,12 @@ public class AppStrings {
 		pause.put(LanguageType.ALBANIAN,new StringLabel(LanguageType.ALBANIAN,"pusho"));
 		pause.put(LanguageType.ITALIAN,new StringLabel(LanguageType.ITALIAN,"pausa"));
 		pause.put(LanguageType.GERMAN,new StringLabel(LanguageType.GERMAN,"pause"));
-		pause.put(LanguageType.FRENCH,new StringLabel(LanguageType.FRENCH,"arrêt"));
+		pause.put(LanguageType.FRENCH,new StringLabel(LanguageType.FRENCH,"arret"));
 		
 		close.put(LanguageType.ENGLISH,new StringLabel(LanguageType.ENGLISH,"Close"));
 		close.put(LanguageType.ALBANIAN,new StringLabel(LanguageType.ALBANIAN,"Mbyll"));
 		close.put(LanguageType.ITALIAN,new StringLabel(LanguageType.ITALIAN,"Chiusi"));
-		close.put(LanguageType.GERMAN,new StringLabel(LanguageType.GERMAN,"Schließen"));
+		close.put(LanguageType.GERMAN,new StringLabel(LanguageType.GERMAN,"Schliessen"));
 		close.put(LanguageType.FRENCH,new StringLabel(LanguageType.FRENCH,"Fermer"));
 		
 		
@@ -130,14 +130,14 @@ public class AppStrings {
 		gameWinner.put(LanguageType.ALBANIAN,new StringLabel(LanguageType.ALBANIAN,"Ti fitove."));
 		gameWinner.put(LanguageType.ITALIAN,new StringLabel(LanguageType.ITALIAN,"Hai vinto."));
 		gameWinner.put(LanguageType.GERMAN,new StringLabel(LanguageType.GERMAN,"Du hast gewonnen."));
-		gameWinner.put(LanguageType.FRENCH,new StringLabel(LanguageType.FRENCH,"Tu as gagné."));
+		gameWinner.put(LanguageType.FRENCH,new StringLabel(LanguageType.FRENCH,"Tu as gagne."));
 		
 		
 		gameOver.put(LanguageType.ENGLISH,new StringLabel(LanguageType.ENGLISH,"Game over."));
 		gameOver.put(LanguageType.ALBANIAN,new StringLabel(LanguageType.ALBANIAN,"Loja mbaroi."));
 		gameOver.put(LanguageType.ITALIAN,new StringLabel(LanguageType.ITALIAN,"Gioco finito."));
 		gameOver.put(LanguageType.GERMAN,new StringLabel(LanguageType.GERMAN,"Spiel ist aus."));
-		gameOver.put(LanguageType.FRENCH,new StringLabel(LanguageType.FRENCH,"Jeu terminé."));
+		gameOver.put(LanguageType.FRENCH,new StringLabel(LanguageType.FRENCH,"Jeu termine."));
 		
 		
 		//======================================================================================
@@ -146,7 +146,7 @@ public class AppStrings {
 		success.put(LanguageType.ALBANIAN,new StringLabel(LanguageType.ALBANIAN,"Sukses"));
 		success.put(LanguageType.ITALIAN,new StringLabel(LanguageType.ITALIAN,"Successo"));
 		success.put(LanguageType.GERMAN,new StringLabel(LanguageType.GERMAN,"Erfolg"));
-		success.put(LanguageType.FRENCH,new StringLabel(LanguageType.FRENCH,"Succès"));
+		success.put(LanguageType.FRENCH,new StringLabel(LanguageType.FRENCH,"Succes"));
 		
 		warning.put(LanguageType.ENGLISH,new StringLabel(LanguageType.ENGLISH,"Warning"));
 		warning.put(LanguageType.ALBANIAN,new StringLabel(LanguageType.ALBANIAN,"Paralajmerim"));
@@ -178,7 +178,7 @@ public class AppStrings {
 		
 		bonus.put(LanguageType.ENGLISH,new StringLabel(LanguageType.ENGLISH,"Bonus"));
 		bonus.put(LanguageType.ALBANIAN,new StringLabel(LanguageType.ALBANIAN,"Bonus"));
-		bonus.put(LanguageType.ITALIAN,new StringLabel(LanguageType.ITALIAN,"Indennità"));
+		bonus.put(LanguageType.ITALIAN,new StringLabel(LanguageType.ITALIAN,"Indennita"));
 		bonus.put(LanguageType.GERMAN,new StringLabel(LanguageType.GERMAN,"Bonus"));
 		bonus.put(LanguageType.FRENCH,new StringLabel(LanguageType.FRENCH,"Prime"));
 		
@@ -186,7 +186,7 @@ public class AppStrings {
 		bonusAnswerCorrect.put(LanguageType.ALBANIAN,new StringLabel(LanguageType.ALBANIAN,"Pergjigje e sakte"));
 		bonusAnswerCorrect.put(LanguageType.ITALIAN,new StringLabel(LanguageType.ITALIAN,"Risposta corretta"));
 		bonusAnswerCorrect.put(LanguageType.GERMAN,new StringLabel(LanguageType.GERMAN,"Korrekte Antwort"));
-		bonusAnswerCorrect.put(LanguageType.FRENCH,new StringLabel(LanguageType.FRENCH,"Bonne réponse"));
+		bonusAnswerCorrect.put(LanguageType.FRENCH,new StringLabel(LanguageType.FRENCH,"Bonne reponse"));
 		
 		
 		
@@ -210,7 +210,7 @@ public class AppStrings {
 		time.put(LanguageType.ALBANIAN,new StringLabel(LanguageType.ALBANIAN,"Koha e harxhuar : "));
 		time.put(LanguageType.ITALIAN,new StringLabel(LanguageType.ITALIAN,"Tempo trascorso : "));
 		time.put(LanguageType.GERMAN,new StringLabel(LanguageType.GERMAN,"verstrichene Zeit : "));
-		time.put(LanguageType.FRENCH,new StringLabel(LanguageType.FRENCH,"Temps écoulé : "));
+		time.put(LanguageType.FRENCH,new StringLabel(LanguageType.FRENCH,"Temps ï¿½coulï¿½ : "));
 		
 		level.put(LanguageType.ENGLISH,new StringLabel(LanguageType.ENGLISH,"Level : "));
 		level.put(LanguageType.ALBANIAN,new StringLabel(LanguageType.ALBANIAN,"Niveli : "));
@@ -222,21 +222,21 @@ public class AppStrings {
 		alien.put(LanguageType.ENGLISH,new StringLabel(LanguageType.ENGLISH,"Alien :"));
 		alien.put(LanguageType.ALBANIAN,new StringLabel(LanguageType.ALBANIAN,"Jashtetokesor :"));
 		alien.put(LanguageType.ITALIAN,new StringLabel(LanguageType.ITALIAN,"Alieno :"));
-		alien.put(LanguageType.GERMAN,new StringLabel(LanguageType.GERMAN,"Ausländer :"));
+		alien.put(LanguageType.GERMAN,new StringLabel(LanguageType.GERMAN,"Auslï¿½nder :"));
 		alien.put(LanguageType.FRENCH,new StringLabel(LanguageType.FRENCH,"Extraterrestre :"));
 		
 		meteor.put(LanguageType.ENGLISH,new StringLabel(LanguageType.ENGLISH,"Meteor :"));
 		meteor.put(LanguageType.ALBANIAN,new StringLabel(LanguageType.ALBANIAN,"Meteor :"));
 		meteor.put(LanguageType.ITALIAN,new StringLabel(LanguageType.ITALIAN,"Meteora :"));
 		meteor.put(LanguageType.GERMAN,new StringLabel(LanguageType.GERMAN,"Meteor :"));
-		meteor.put(LanguageType.FRENCH,new StringLabel(LanguageType.FRENCH,"Météore :"));
+		meteor.put(LanguageType.FRENCH,new StringLabel(LanguageType.FRENCH,"Mï¿½tï¿½ore :"));
 		
 		
 		planet.put(LanguageType.ENGLISH,new StringLabel(LanguageType.ENGLISH,"Planet :"));
 		planet.put(LanguageType.ALBANIAN,new StringLabel(LanguageType.ALBANIAN,"Planet :"));
 		planet.put(LanguageType.ITALIAN,new StringLabel(LanguageType.ITALIAN,"Pianeta :"));
 		planet.put(LanguageType.GERMAN,new StringLabel(LanguageType.GERMAN,"Planet :"));
-		planet.put(LanguageType.FRENCH,new StringLabel(LanguageType.FRENCH,"Planète :"));
+		planet.put(LanguageType.FRENCH,new StringLabel(LanguageType.FRENCH,"Planï¿½te :"));
 		
 		
 		  //======================================================================================

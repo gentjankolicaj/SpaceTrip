@@ -96,6 +96,7 @@ public class KeyboardListener implements KeyListener{
 		
 	}
 
+	
 	@Override
 	public void keyReleased(KeyEvent e) {
 		 int key= e.getKeyCode();
@@ -159,7 +160,6 @@ public class KeyboardListener implements KeyListener{
 				spaceShip.getLocation().setX(spaceShip.getLocation().getX()+(GameConfig.spaceship_speed+1));
 			}
 		}
-		
 		
 		
 	}

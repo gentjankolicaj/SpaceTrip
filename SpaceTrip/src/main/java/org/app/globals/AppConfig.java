@@ -6,7 +6,7 @@ import org.app.util.StringType;
 
 /**
  * 
- * @author gentjan koliçaj
+ * @author gentjan kolicaj
  *
  */
 public class AppConfig {
@@ -32,12 +32,6 @@ public class AppConfig {
 	public static final int INFO_PANEL_WIDTH= 930;
 	public static final int INFO_PANEL_HEIGHT = 100;
 
-	
-	
-	
-	
-	
-	
 	
 	
 	

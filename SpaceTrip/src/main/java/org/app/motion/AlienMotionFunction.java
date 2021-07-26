@@ -276,7 +276,6 @@ public class AlienMotionFunction implements Function<Location, Location> {
 		  Integer integer=(Integer) bump;
 		  bump=integer;
 	  }	
-		
 	}
 	
 	

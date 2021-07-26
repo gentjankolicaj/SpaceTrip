@@ -15,7 +15,7 @@ public class LocationUtils {
 	
 	public static Location[] getRandomMeteorLocation(int gameLevel) {
 		Location[] locationArray=new Location[GameConfig.METEORS_PER_LEVEL[gameLevel]];
-		int [][] coordinates=getRandomArray2DMeteors(1500, GameConfig.METEORS_PER_LEVEL[gameLevel]);
+		int [][] coordinates=getRandomArray2DMeteors(2000, GameConfig.METEORS_PER_LEVEL[gameLevel]);
 		for(int i=0;i<coordinates.length;i++) {
 				int x=coordinates[i][0];
 				int y=coordinates[i][1];

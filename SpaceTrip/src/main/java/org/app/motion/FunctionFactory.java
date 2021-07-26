@@ -1,6 +1,5 @@
 package org.app.motion;
 
-import org.app.util.LogUtils;
 
 /**
  * 
