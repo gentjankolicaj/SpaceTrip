@@ -59,6 +59,7 @@ public class GameConfig {
     public static int alienBumps = 2;
     public static MeteorMotionFunctionType MMF = MeteorMotionFunctionType.X_Y0;
     public static AlienMotionFunctionType AMF = AlienMotionFunctionType.X_COSX;
+
     private GameConfig() {
     }
 

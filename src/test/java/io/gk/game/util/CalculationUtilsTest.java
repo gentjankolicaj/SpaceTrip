@@ -9,14 +9,14 @@ class CalculationUtilsTest {
 	private static final boolean print = false;
 
 	@Test
-	public void callTestMethods() {
+	void callTestMethods() {
 		if (var == 2) {
 			testCalculateCoordinateYInt();
 		} else
 			testCalculateCoordinateYInt();
-    }
+	}
 
-    public void testCalculateCoordinateYInt() {
+	public void testCalculateCoordinateYInt() {
 		System.out.println();
 		System.out.println("================================================================================");
 		System.out.println();

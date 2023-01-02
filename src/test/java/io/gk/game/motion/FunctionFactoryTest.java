@@ -26,7 +26,7 @@ class FunctionFactoryTest {
 		while (i < 10) {
 			tmp = function.calculate(tmp);
 			i++;
-			
+
 		}
 	}
 
